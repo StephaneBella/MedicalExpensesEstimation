@@ -48,7 +48,7 @@ def load_model(path=config['model']['model_path']):
 # fonction d'evaluation
 def evaluation(model, x_train, x_test, y_train, y_test, 
                learning_curve_fig_path=config['outputs']['learning_curve&residuals'],
-               metrics_path=config['outputs']['metrics_path']):
+               metrics_path=config['outputs']['metrics_path'], coef_path=config['outputs']['coef_path']):
 
     y_train_log = np.log(y_train)
     model = model.fit(x_train, y_train_log)
@@ -96,6 +96,34 @@ def evaluation(model, x_train, x_test, y_train, y_test,
     sns.histplot(residus, label='Distribution des Residus', kde=True)
     plt.legend()
     plt.show()
+
+    # Affichage des coefficients
+
+    # Récupérer les noms des features crées par polynomial features
+    poly = model.named_steps['polynomialfeatures'].get_feature_names_out(x_train.columns)
+
+    # récupérer les indices selectionnés par selectkbest
+    selected_indices = model.named_steps['selectkbest'].get_support(indices=True)
+
+    # appliquer les indices pour avoir les noms finaux des variables selectionnées
+    selected_feature_names = poly[selected_indices]
+
+    # récuperer les coefficients appris par le modèle ridge
+    coefficients = model.named_steps['linearregression'].coef_
+
+    # Associer les noms des variables
+    coeff_df = pd.DataFrame({ 
+        'Feature': selected_feature_names,
+        'coefficient': coefficients
+        })
+    
+    # Affichage des coefficients les plus élevés
+    plt.figure(figsize=(12, 6))
+    sns.barplot(data=coeff_df.head(20), x='coefficient', y='Feature', palette='coolwarm')
+    plt.title('Top 20 des coefficients de la régression polynomiale')
+    plt.savefig(coef_path)
+    plt.tight_layout()
+
 
     return model
 

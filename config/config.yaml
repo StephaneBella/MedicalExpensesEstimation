@@ -8,3 +8,4 @@ model:
 outputs:
   learning_curve&residuals: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/outputs/figures/learning_curve.png"
   metrics_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/outputs/figures/metrics.json"
+  coef_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/outputs/figures/coefficients.png"
