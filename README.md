@@ -30,7 +30,7 @@ Aucune discrimination basée sur des **critères sensibles**, notamment :
 
 ###  Transparence
 - Les décisions (ex. prime d’assurance élevée) doivent être **explicables**
-- Utilisation de techniques d’**interprétabilité** (SHAP, LIME)
+- Utilisation de techniques d’**interprétabilité** (SHAP, LIME) ou des modèles directement interprétables (**LinearRegression, Ridge, Lasso**)
 
 ###  Robustesse aux biais
 - Le modèle doit être **robuste face aux biais historiques** dans les données
