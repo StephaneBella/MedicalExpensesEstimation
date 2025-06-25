@@ -1,0 +1,10 @@
+data:
+  raw_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/data/raw/Medical cost.csv"
+  processed_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/data/processed/processed_medical_cost.csv"
+model:
+  model_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/models/medical_cost_estimator.pkl"
+  model_params_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/config/model_params.json"
+
+outputs:
+  learning_curve&residuals: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/outputs/figures/learning_curve.png"
+  metrics_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/outputs/figures/metrics.json"
