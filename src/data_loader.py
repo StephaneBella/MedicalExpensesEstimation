@@ -4,7 +4,7 @@ import os
 
 
 # fonction pour charger les config du fichier config.yaml
-def load_config(config_path='C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/config/config.yaml'):
+def load_config(config_path='C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/MedicalExpensesEstimation/config/config.yaml'):
     with open(config_path, 'r') as file:
         config = yaml.safe_load(file)
         return config

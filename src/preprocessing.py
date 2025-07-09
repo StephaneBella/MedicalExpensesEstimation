@@ -16,15 +16,6 @@ def gestion_doublons(df):
     return df.drop_duplicates()
 
 
-# fonction pour l'encodage catégoriel
-def encodage_catégoriel(df):
-    cols = df.select_dtypes(include='object').drop(['region', 'sex'], axis=1).columns
-    dummies = pd.get_dummies(df[cols], dtype=int)
-    df = df.drop(columns=cols)
-    df = df.drop(['region', 'sex'], axis=1)
-    df = pd.concat([df, dummies], axis=1)
-    return df
-
 # fonction pour la normalisation
 def normalisation(df):
     scaler = MinMaxScaler()
@@ -37,7 +28,7 @@ def normalisation(df):
 config = load_config()
 def save_and_split(df, processed_path=config['data']['processed_path']):
     df.to_csv(processed_path, index=False)
-    x = df.drop('charges', axis=1)
+    x = df.drop(['charges', 'region'], axis=1)
     y = df['charges']
     x_train, x_test, y_train, y_test = train_test_split(x, y, shuffle=True, random_state=0)
     return x_train, x_test, y_train, y_test
@@ -47,7 +38,6 @@ def save_and_split(df, processed_path=config['data']['processed_path']):
 def preprocessing(df):
     df = gestion_nan(df)
     df = gestion_doublons(df)
-    df = encodage_catégoriel(df)
     x_train, x_test, y_train, y_test = save_and_split(df)
     return x_train, x_test, y_train, y_test
 

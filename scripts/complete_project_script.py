@@ -16,7 +16,7 @@ def main():
     x_train, x_test, y_train, y_test = preprocessing(df)
 
     # initialisation des estimateurs et choix du modèle
-    models = initialisation()
+    models = initialisation(x_train=x_train)
     model = models['Polynomial Regression']
 
     # entrinement et evaluation
@@ -28,7 +28,7 @@ def main():
     save_model(model=final_model, output_path=config['model']['model_path'])
 
     # sauvegarde des paramètres du modèle
-    save_model_params(final_model, output_path=config['model']['model_params_path'])
+    #save_model_params(final_model, output_path=config['model']['model_params_path'])
 
 if __name__ == "__main__":
     main()

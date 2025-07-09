@@ -1,11 +1,12 @@
 data:
-  raw_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/data/raw/Medical cost.csv"
-  processed_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/data/processed/processed_medical_cost.csv"
+  raw_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/MedicalExpensesEstimation/data/raw/Medical cost.csv"
+  processed_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/MedicalExpensesEstimation/data/processed/processed_medical_cost.csv"
+
 model:
-  model_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/models/medical_cost_estimator.pkl"
-  model_params_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/config/model_params.json"
+  model_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/MedicalExpensesEstimation/models/medical_cost_estimator.pkl"
+  model_params_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/MedicalExpensesEstimation/config/model_params.json"
 
 outputs:
-  learning_curve&residuals: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/outputs/figures/learning_curve.png"
-  metrics_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/outputs/figures/metrics.json"
-  coef_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/Medical_expenses_estimation_project/outputs/figures/coefficients.png"
+  learning_curve&residuals: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/MedicalExpensesEstimation/outputs/figures/learning_curve.png"
+  metrics_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/MedicalExpensesEstimation/outputs/figures/metrics.json"
+  coef_path: "C:/Users/DELL/Documents/VEMV/pycaret/work/Projets_professionnels/MedicalExpensesEstimation/outputs/figures/coefficients.png"

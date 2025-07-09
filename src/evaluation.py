@@ -95,31 +95,32 @@ def evaluation(model, x_train, x_test, y_train, y_test,
     plt.subplot(1, 2, 2)
     sns.histplot(residus, label='Distribution des Residus', kde=True)
     plt.legend()
-    plt.show()
+    #plt.show()
 
     # Affichage des coefficients
 
-    # Récupérer les noms des features crées par polynomial features
-    poly = model.named_steps['polynomialfeatures'].get_feature_names_out(x_train.columns)
+    # Étape 1 : Récupérer les noms des colonnes après ColumnTransformer
+    feature_names = model.named_steps['columntransformer'].get_feature_names_out()
 
-    # récupérer les indices selectionnés par selectkbest
+    # Étape 2 : Générer les noms après PolynomialFeatures
+    poly_features = model.named_steps['polynomialfeatures'].get_feature_names_out(feature_names)
+
+    # Étape 3 : Récupérer les indices sélectionnés par SelectKBest
     selected_indices = model.named_steps['selectkbest'].get_support(indices=True)
 
-    # appliquer les indices pour avoir les noms finaux des variables selectionnées
-    selected_feature_names = poly[selected_indices]
-
-    # récuperer les coefficients appris par le modèle ridge
+    # Étape 4 : Sélectionner les noms finaux et les coefficients correspondants
+    selected_feature_names = poly_features[selected_indices]
     coefficients = model.named_steps['linearregression'].coef_
 
-    # Associer les noms des variables
-    coeff_df = pd.DataFrame({ 
+    # Étape 5 : Construction du DataFrame final
+    coeff_df = pd.DataFrame({
         'Feature': selected_feature_names,
-        'coefficient': coefficients
-        })
+        'Coefficient': coefficients
+    })
     
     # Affichage des coefficients les plus élevés
     plt.figure(figsize=(12, 6))
-    sns.barplot(data=coeff_df.head(20), x='coefficient', y='Feature', palette='coolwarm')
+    sns.barplot(data=coeff_df.head(20), x='Coefficient', y='Feature', palette='coolwarm')
     plt.title('Top 20 des coefficients de la régression polynomiale')
     plt.savefig(coef_path)
     plt.tight_layout()
